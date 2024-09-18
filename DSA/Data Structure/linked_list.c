@@ -16,7 +16,6 @@ Node *create_node(int item, Node *next){
         printf("Error! Could not create a new node\n");
         exit(1);
     }
-
     new_node->data = item;
     new_node->next = next;
 
