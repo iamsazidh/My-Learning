@@ -79,22 +79,39 @@ Node *sort_nodes(Node *head){
 
                 
             }
-            
-
-
-
             current_node = store_node;
-
         }   
     }
-
     current_node = head;
     while (current_node->prev != NULL){
         current_node = current_node->prev;
     }
     return current_node;
+}
+
+Node *reverse_nodes(Node *head){
+    Node *current_node = head;
+    int count = 1;
+    while (current_node->next != NULL){
+        count++;
+        current_node = current_node->next;
+    }
+    head = current_node;
+    Node *prev_node;
+    while (current_node != NULL){
+        prev_node = current_node->prev;
+        current_node->prev = current_node->next;
+        current_node->next = prev_node;
+
+        current_node = prev_node;
+    }
     
-    
+    // current_node = head;
+    // for(int i = 1; i < count; i++){
+    //     current_node = current_node->next;
+    // }
+    // current_node->next = NULL;
+    return head;
 }
 
 int main(){
@@ -110,8 +127,11 @@ int main(){
     head = append(100, head);
     print_nodes(head);
 
-    head = sort_nodes(head);
-    print_nodes(head);
+    // head = sort_nodes(head);
+    // print_nodes(head);
 
+    head = reverse_nodes(head);
+    print_nodes(head);
+    
     return 0;
 }
