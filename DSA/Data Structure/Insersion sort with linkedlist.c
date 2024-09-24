@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./DSA/Data Structure/doubly linked list.h"
+#include "doubly linked list.h"
 
 int main(){
     Node *n1, *head;
